@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="../src/input.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="./script.js" defer></script>
+
+    <title>Frontend Mentor | IP Address Tracker</title>
+  </head>
+  <body class="min-h-screen w-full font-rubik relative">
+    <main class="min-h-screen flex flex-col">
+      <section>
+        <img
+          src="./images/pattern-bg-mobile.png"
+          alt="pattern-bg-mobile"
+          class="w-full md:hidden h-80 object-cover"
+        />
+        <img
+          src="./images/pattern-bg-desktop.png"
+          alt="pattern-bg-desktop"
+          class="w-full hidden md:block h-60 object-cover"
+        />
+      </section>
+      <!-- map section -->
+      <section id="map" class="w-full flex-auto z-10"></section>
+
+      <!-- container -->
+      <section
+        class="fixed right-0 mx-auto top-5 md:top-5 max-w-lg md:max-w-3xl left-0 z-10 flex flex-col p-8 md:px-0 items-center gap-7 md:gap-5"
+      >
+        <h2 class="text-white font font-medium text-3xl">IP Address Tracker</h2>
+
+        <form
+          id="form"
+          name="address"
+          class="max-w-md w-full flex bg-white rounded-xl overflow-hidden"
+        >
+          <input
+            type="text"
+            name="address"
+            id="address"
+            class="bg-transparent outline-none w-full px-3 py-4 text-Very-Dark-Gray text-lg"
+            placeholder="search for any IP address"
+          />
+          <button
+            id="submit"
+            type="submit"
+            class="bg-black px-5 hover:bg-Very-Dark-Gray"
+            aria-label="submit"
+          >
+            <img src="./images/icon-arrow.svg" alt="" />
+          </button>
+        </form>
+
+        <article
+          class="bg-white max-w-lg md:max-w-4xl flex flex-col z-10 md:flex-row w-full justify-center items-center md:items-start rounded-xl py-4 gap-5 md:px-5 md:gap-9 md:py-7"
+        >
+          <!-- IP address section -->
+          <div
+            class="flex flex-col gap-3 md:gap-1 justify-center md:justify-start text-center md:text-left md:px-3"
+          >
+            <h3 class="text-Dark-Gray font-bold tracking-widest text-xs">
+              IP ADDRESS
+            </h3>
+            <p
+              id="ip-address"
+              class="text-Very-Dark-Gray font-bold text-2xl md:text-lg"
+            >
+              192.212.174.101
+            </p>
+          </div>
+          <!-- location -->
+          <div
+            class="flex flex-col gap-3 md:border-l-2 md:gap-1 justify-center md:justify-start text-center md:text-left md:px-3"
+          >
+            <h3 class="text-Dark-Gray font-bold tracking-widest text-xs">
+              LOCATION
+            </h3>
+            <p
+              id="location"
+              class="text-Very-Dark-Gray font-bold text-2xl md:text-lg"
+            >
+              Brooklyn, NY 10001
+            </p>
+          </div>
+          <!-- TIMEZONE -->
+          <div
+            class="flex flex-col gap-3 md:border-l-2 md:gap-1 justify-center md:justify-start text-center md:text-left md:px-2"
+          >
+            <h3 class="text-Dark-Gray font-bold tracking-widest text-xs">
+              TIMEZONE
+            </h3>
+            <p
+              id="timezone"
+              class="text-Very-Dark-Gray font-bold text-2xl md:text-lg"
+            >
+              UTC-05:00
+            </p>
+          </div>
+          <!-- ISP -->
+          <div
+            class="flex flex-col gap-3 md:gap-1 justify-center text-center md:text-left md:border-l-2 md:px-3"
+          >
+            <h3 class="text-Dark-Gray font-bold tracking-widest text-xs">
+              ISP
+            </h3>
+            <p
+              id="isp"
+              class="text-Very-Dark-Gray font-bold text-2xl md:text-lg"
+            >
+              SpaceX Starlink
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <!-- attribution -->
+      <section
+        class="fixed bottom-0 font-semibold text-Very-Dark-Gray z-50 w-full flex justify-center text-xs"
+      >
+        <div class="bg-white p-1">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by &nbsp; <a href="#">Abraham Joseph</a>.
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
